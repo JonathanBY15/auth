@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>{{user.username}}</h1>
+    <p><span>Email: </span>{{user.email}}</p>
+    <p><span>First Name: </span>{{user.first_name}}</p>
+    <p><span>Last Name: </span>{{user.last_name}}</p>
+
+    <h2>Feedback</h2>
+
+    {%for feed in feedback%}
+    <p><span>{{feed.title}}: </span>{{feed.content}}<a href="/feedback/{{feed.id}}/update">Edit</a><a
+            href="/feedback/{{feed.id}}/delete" method="post">Delete</a></p>
+    {%endfor%}
+
+    <a href="/logout">Log Out</a>
+    <br>
+    <a href="/users/{{user.username}}/feedback/add">Add Feedback</a>
+    <br>
+    <a href="/users/{{user.username}}/delete">Delete User</a>
+</body>
+
+</html>
